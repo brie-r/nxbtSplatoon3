@@ -107,6 +107,12 @@
                         <div class="control-indicator hidden" id="pc_zr"></div>
                     </div>
                 </div>
+
+                <canvas width="500" height="500">
+                    Your browser does not support HTML5 canvas
+                </canvas>
+                <div id="tracker"></div>
+
                 <div id="controller-input" class="controller-config-subsection">
                     <h2 class="surface-lighter">Input Device</h2>
                     <select id="input-device" name="Select an Input Device" onchange="changeInput(event)">
@@ -122,15 +128,15 @@
                     </p>
                     <h2 class="surface-lighter">Input Sampling Frequency</h2>
                     <select id="input-frequency" name="Select an Input Sampling Frequency" onchange="changeFrequency(event)">
-                        <option value="RAF">Monitor Refresh Rate</option>
                         <option value="240">240Hz</option>
                         <option value="120">120Hz</option>
                         <option value="60">60Hz</option>
+                        <option value="RAF">Monitor Refresh Rate</option>
                     </select>
                     <p>
-                        Note: "Monitor Refresh Rate" is a more stable but 
+                        Note: "Monitor Refresh Rate" is a more stable but
                         (potentially) slower frequency. This loop uses the
-                        "requestAnimationFrame()" function, rather than 
+                        "requestAnimationFrame()" function, rather than
                         "setTimeout()".
                     </p>
                     <h2 class="surface-lighter">Control Mapping</h2>
@@ -163,11 +169,19 @@
                                 </tr>
                                 <tr>
                                     <td>Plus & Minus</td>
-                                    <td>6 & 7</td>
+                                    <td>Enter & 7</td>
                                 </tr>
                                 <tr>
-                                    <td>A B X Y</td>
-                                    <td>L K I J</td>
+                                    <td>A</td>
+                                    <td>F</td>
+                                </tr>
+                                <tr>
+                                    <td>B</td>
+                                    <td>Space</td>
+                                </tr>
+                                <tr>
+                                    <td>X Y</td>
+                                    <td>I J</td>
                                 </tr>
                                 <tr>
                                     <td>L & ZL</td>
@@ -206,6 +220,8 @@
                     </p>
                     <textarea id="macro-text" class="mono" placeholder="Type Your Macro Here" onfocus="disableKeyHandlers()" onblur="enableKeyHandlers()"></textarea>
                     <button onclick="sendMacro()">Run Macro</button>
+                    <h2 class="surface-lighter">Test</h2>
+                    <input oninput="" type="range" min="-180" max="180" value="0" class="slider" id="gyro_x">
                 </div>
             </section>
 
